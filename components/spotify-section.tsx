@@ -8,7 +8,8 @@ import { Reveal } from "@/components/reveal"
 export function SpotifySection() {
   return (
     <section id="playlist" className="relative py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mesh-red pointer-events-none absolute inset-0" aria-hidden="true" />
+      <div className="relative mx-auto max-w-6xl px-6">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <div className="flex items-center gap-6">
@@ -39,7 +40,7 @@ export function SpotifySection() {
           </Reveal>
 
           <Reveal delay={0.15}>
-            <div className="rounded-3xl border border-gold/20 bg-card/60 p-3 shadow-2xl backdrop-blur-sm">
+            <div className="glass rounded-3xl p-3 shadow-2xl">
               <iframe
                 title="Playlist oficial de FRIDHA en Spotify"
                 className="w-full rounded-2xl"

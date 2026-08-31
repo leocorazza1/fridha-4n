@@ -42,8 +42,9 @@ export function GallerySection() {
   }, [active, close, next, prev])
 
   return (
-    <section id="galeria" className="py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="galeria" className="relative py-20 sm:py-28">
+      <div className="mesh-red pointer-events-none absolute inset-0" aria-hidden="true" />
+      <div className="relative mx-auto max-w-6xl px-6">
         <Reveal className="mb-12 text-center">
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-gold">
             La experiencia

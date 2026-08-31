@@ -5,6 +5,7 @@ import Image from "next/image"
 import { motion, useScroll, useTransform } from "motion/react"
 import { Calendar, MapPin, Clock, ChevronDown, Ticket } from "lucide-react"
 import { EVENT } from "@/lib/event"
+import { Particles } from "@/components/particles"
 
 export function HeroSection() {
   const ref = useRef<HTMLElement>(null)
@@ -32,11 +33,15 @@ export function HeroSection() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/25 via-transparent to-background" />
-        {/* Santa-red wash */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_45%,oklch(0.5_0.2_25/0.4),transparent_70%)] mix-blend-screen" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_55%,var(--background)_140%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background" />
+        {/* Crimson mesh wash for depth */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_42%,oklch(0.58_0.24_25/0.5),transparent_68%)] mix-blend-screen" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_85%,oklch(0.45_0.2_350/0.35),transparent_60%)] mix-blend-screen" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_50%,var(--background)_135%)]" />
       </motion.div>
+
+      {/* Floating snow / sparks */}
+      <Particles count={46} />
 
       <motion.div
         style={{ y: contentY, opacity: contentOpacity }}
@@ -66,7 +71,7 @@ export function HeroSection() {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="mt-4 max-w-xl text-balance text-base text-foreground/80 sm:text-lg"
         >
-          La fiesta de Navidad del año. Una noche de lujo, luces doradas y la mejor música
+          La fiesta de Navidad del año. Una noche de lujo, luces carmesí y la mejor música
           hasta el amanecer.
         </motion.p>
 
@@ -99,7 +104,7 @@ export function HeroSection() {
           transition={{ duration: 0.7, delay: 0.6 }}
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.97 }}
-          className="mt-10 inline-flex items-center gap-2 rounded-full bg-gold px-8 py-4 text-base font-semibold text-primary-foreground shadow-[0_0_40px_-8px_var(--gold)] transition-shadow hover:shadow-[0_0_60px_-6px_var(--gold)]"
+          className="btn-cta mt-10 inline-flex items-center gap-2 rounded-full px-8 py-4 text-base font-semibold"
         >
           <Ticket className="size-5" aria-hidden="true" />
           Comprar Entradas

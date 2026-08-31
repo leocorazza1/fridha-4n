@@ -9,7 +9,8 @@ import { Countdown } from "@/components/countdown"
 export function TicketsSection() {
   return (
     <section id="entradas" className="relative py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mesh-red pointer-events-none absolute inset-0" aria-hidden="true" />
+      <div className="relative mx-auto max-w-6xl px-6">
         <Reveal className="mb-10 text-center">
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-gold">
             No te la pierdas
@@ -32,14 +33,12 @@ export function TicketsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className={`relative flex flex-col rounded-2xl border p-7 ${
-                t.featured
-                  ? "border-gold/60 bg-gradient-to-b from-secondary/60 to-card shadow-[0_0_50px_-14px_var(--gold)]"
-                  : "border-gold/15 bg-card/60"
+              className={`relative flex flex-col rounded-2xl p-7 ${
+                t.featured ? "glow-border md:-translate-y-3 md:scale-[1.03]" : "glass"
               }`}
             >
               {t.featured && (
-                <span className="absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1 rounded-full bg-gold px-3 py-1 text-xs font-semibold text-primary-foreground">
+                <span className="btn-cta absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold">
                   <Star className="size-3 fill-current" aria-hidden="true" />
                   Más elegida
                 </span>
@@ -63,7 +62,7 @@ export function TicketsSection() {
                 rel="noopener noreferrer"
                 className={`mt-7 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-transform hover:scale-[1.03] ${
                   t.featured
-                    ? "bg-gold text-primary-foreground"
+                    ? "btn-cta"
                     : "border border-gold/40 text-gold hover:bg-gold/10"
                 }`}
               >
@@ -79,7 +78,7 @@ export function TicketsSection() {
             href={EVENT.ticketsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 rounded-full bg-gold px-10 py-5 text-lg font-bold text-primary-foreground shadow-[0_0_50px_-10px_var(--gold)] transition-transform hover:scale-105"
+            className="btn-cta inline-flex items-center gap-3 rounded-full px-10 py-5 text-lg font-bold transition-transform hover:scale-105"
           >
             <Ticket className="size-6" aria-hidden="true" />
             Comprar Entradas
