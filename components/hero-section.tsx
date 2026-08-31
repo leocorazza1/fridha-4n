@@ -5,6 +5,7 @@ import Image from "next/image"
 import { motion, useScroll, useTransform } from "motion/react"
 import { Calendar, MapPin, Clock, ChevronDown, Ticket } from "lucide-react"
 import { EVENT } from "@/lib/event"
+import { ChristmasLights } from "@/components/christmas-lights"
 
 export function HeroSection() {
   const ref = useRef<HTMLElement>(null)
@@ -23,7 +24,7 @@ export function HeroSection() {
       ref={ref}
       className="relative flex min-h-[100svh] items-center justify-center overflow-hidden"
     >
-      <motion.div style={{ y: bgY }} className="absolute inset-0 -z-10 scale-110">
+      <motion.div style={{ y: bgY }} className="absolute inset-0 z-0 scale-110">
         <Image
           src="/images/hero.png"
           alt="Fiesta de Navidad FRIDHA con luces doradas"
@@ -32,13 +33,15 @@ export function HeroSection() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_10%,var(--background)_120%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/25 via-transparent to-background" />
+        {/* Santa-red wash */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_45%,oklch(0.5_0.2_25/0.4),transparent_70%)] mix-blend-screen" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_55%,var(--background)_140%)]" />
       </motion.div>
 
       <motion.div
         style={{ y: contentY, opacity: contentOpacity }}
-        className="mx-auto flex max-w-4xl flex-col items-center px-6 text-center"
+        className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-6 text-center"
       >
         <motion.span
           initial={{ opacity: 0, y: 16 }}
@@ -49,14 +52,29 @@ export function HeroSection() {
           {EVENT.tagline}
         </motion.span>
 
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="text-gold-gradient font-display text-[22vw] leading-[0.82] tracking-tight sm:text-[16rem]"
+          className="relative"
         >
-          {EVENT.name}
-        </motion.h1>
+          {/* Top garland draped over the title */}
+          <ChristmasLights
+            count={12}
+            className="pointer-events-none absolute -top-6 left-1/2 h-16 w-[112%] -translate-x-1/2 sm:-top-8 sm:h-20"
+          />
+
+          <h1 className="text-gold-gradient font-display text-[22vw] leading-[0.82] tracking-tight drop-shadow-[0_0_35px_oklch(0.6_0.2_25/0.35)] sm:text-[16rem]">
+            {EVENT.name}
+          </h1>
+
+          {/* Bottom garland hanging under the title */}
+          <ChristmasLights
+            count={12}
+            flip
+            className="pointer-events-none absolute -bottom-8 left-1/2 h-16 w-[108%] -translate-x-1/2 sm:-bottom-10 sm:h-20"
+          />
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
