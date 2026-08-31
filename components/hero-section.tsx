@@ -5,7 +5,6 @@ import Image from "next/image"
 import { motion, useScroll, useTransform } from "motion/react"
 import { Calendar, MapPin, Clock, ChevronDown, Ticket } from "lucide-react"
 import { EVENT } from "@/lib/event"
-import { ChristmasLights } from "@/components/christmas-lights"
 
 export function HeroSection() {
   const ref = useRef<HTMLElement>(null)
@@ -52,29 +51,14 @@ export function HeroSection() {
           {EVENT.tagline}
         </motion.span>
 
-        <motion.div
+        <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="relative"
+          className="text-gold-gradient font-display text-[22vw] leading-[0.82] tracking-tight drop-shadow-[0_0_35px_oklch(0.6_0.2_25/0.35)] sm:text-[16rem]"
         >
-          {/* Top garland draped over the title */}
-          <ChristmasLights
-            count={12}
-            className="pointer-events-none absolute -top-6 left-1/2 h-16 w-[112%] -translate-x-1/2 sm:-top-8 sm:h-20"
-          />
-
-          <h1 className="text-gold-gradient font-display text-[22vw] leading-[0.82] tracking-tight drop-shadow-[0_0_35px_oklch(0.6_0.2_25/0.35)] sm:text-[16rem]">
-            {EVENT.name}
-          </h1>
-
-          {/* Bottom garland hanging under the title */}
-          <ChristmasLights
-            count={12}
-            flip
-            className="pointer-events-none absolute -bottom-8 left-1/2 h-16 w-[108%] -translate-x-1/2 sm:-bottom-10 sm:h-20"
-          />
-        </motion.div>
+          {EVENT.name}
+        </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
