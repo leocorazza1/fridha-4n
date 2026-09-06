@@ -57,7 +57,6 @@ export function HeroSection() {
         >
           {EVENT.tagline}
         </motion.span>
-
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
