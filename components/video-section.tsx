@@ -19,21 +19,12 @@ export function VideoSection() {
       <div className="mx-auto max-w-sm px-6">
         <div className="relative aspect-9/16 w-full overflow-hidden rounded-2xl border border-gold/20 shadow-2xl">
           {playing ? (
-            <video
-              ref={(node) => {
-                if (!node) return
-                const el = node as HTMLVideoElement & { webkitEnterFullscreen?: () => void }
-                if (el.requestFullscreen) {
-                  el.requestFullscreen().catch(() => {})
-                } else if (el.webkitEnterFullscreen) {
-                  el.webkitEnterFullscreen()
-                }
-              }}
-              className="absolute inset-0 h-full w-full object-cover"
-              src="/fridha/aftermovie.mp4"
-              autoPlay
-              controls
-              playsInline
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src="https://www.youtube.com/embed/b2xnRv36NuU?autoplay=1&playsinline=1"
+              title="Aftermovie de FRIDHA"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+              allowFullScreen
             />
           ) : (
             <>
