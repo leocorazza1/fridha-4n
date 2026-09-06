@@ -1,50 +1,48 @@
 export const EVENT = {
   name: "FRIDHA",
-  tagline: "Navidad Edition",
-  date: "Sábado 20 de Diciembre, 2025",
+  tagline: "Navidad en",
+  date: "Jueves 24 de Diciembre",
   // ISO used by the countdown timer
-  dateISO: "2025-12-20T23:00:00-03:00",
-  time: "23:00 hs — 06:00 hs",
-  venue: "Club Aurora",
-  city: "Palermo, Buenos Aires",
+  dateISO: "2026-12-24T23:00:00-03:00",
+  time: "1:00 hs — 06:00 hs",
+  venue: "Club Sportivo Realicó",
+  city: "Realicó, La Pampa",
   ticketsUrl: "https://entradas.fridha.com",
-  spotifyPlaylistId: "37i9dQZF1DX0Yxoavh5qJV",
+  ticketsAvailable: false,
+  spotifyPlaylistId: "64oGgzEWy5owo8rBNv6Brf",
   socials: {
-    instagram: "https://instagram.com/fridha",
-    tiktok: "https://tiktok.com/@fridha",
+    instagram: "https://instagram.com/fridha.realico"
   },
   contactEmail: "hola@fridha.com",
 }
 
 export const GALLERY = [
-  { src: "/images/gallery-1.png", alt: "Brindis con champagne en la fiesta", span: "tall" },
-  { src: "/images/gallery-2.png", alt: "DJ en cabina bajo luces doradas", span: "wide" },
-  { src: "/images/gallery-3.png", alt: "Gente bailando entre confeti dorado", span: "normal" },
-  { src: "/images/gallery-4.png", alt: "Cócteles con chispas en la barra", span: "tall" },
-  { src: "/images/gallery-5.png", alt: "Invitada riendo bajo luces navideñas", span: "normal" },
-  { src: "/images/gallery-6.png", alt: "Pista de baile llena vista desde arriba", span: "wide" },
+  { src: "/fridha/fridha_gente.jpg", alt: "Gente disfrutando de FRIDHA", span: "wide" },
+  { src: "/fridha/95.jpg", alt: "Edición anterior de FRIDHA", span: "tall" },
+  { src: "/fridha/fridha_si.jpg", alt: "Momento de FRIDHA", span: "tall" },
+  { src: "/fridha/14.jpg", alt: "Edición anterior de FRIDHA", span: "tall" },
+  { src: "/fridha/fridha_leo_moises.jpg", alt: "Edición anterior de FRIDHA", span: "tall" },
+  { src: "/fridha/90.jpg", alt: "Edición anterior de FRIDHA", span: "wide" },
+  { src: "/fridha/143.jpg", alt: "Edición anterior de FRIDHA", span: "tall" },
+  { src: "/fridha/Fridha_portada.jpg", alt: "Edición anterior de FRIDHA", span: "wide" },
+  { src: "/fridha/trex.jpg", alt: "Edición anterior de FRIDHA", span: "tall" },
+  { src: "/fridha/vaso.jpg", alt: "Edición anterior de FRIDHA", span: "tall" },
 ] as const
 
 export const TICKETS = [
   {
     name: "Early Bird",
-    price: "$18.000",
-    note: "Cupos limitados",
-    perks: ["Acceso general", "Primera tanda", "Guardarropa incluido"],
+    note: "Para los que no se quedan esperando",
     featured: false,
   },
   {
     name: "General",
-    price: "$25.000",
-    note: "La entrada clásica",
-    perks: ["Acceso general", "Barra completa", "Welcome drink"],
+    note: "Tu entrada para vivir la noche completa",
     featured: true,
   },
   {
     name: "VIP",
-    price: "$45.000",
-    note: "Experiencia premium",
-    perks: ["Zona VIP exclusiva", "Mesa reservada", "Botella + servicio", "Acceso prioritario"],
+    note: "La experiencia más exclusiva de la noche",
     featured: false,
   },
 ] as const

@@ -291,3 +291,71 @@
     opacity: 0;
   }
 }
+
+/* Slow breathing glow behind the hero title */
+@keyframes hero-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 35px oklch(0.6 0.24 22 / 0.35));
+  }
+  50% {
+    filter: drop-shadow(0 0 55px oklch(0.75 0.2 40 / 0.55));
+  }
+}
+
+.animate-hero-glow {
+  animation: hero-glow 4s ease-in-out infinite;
+}
+
+/* Infinite horizontal ticker */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 18s linear infinite;
+}
+
+/* Idle attention halo behind the primary CTA (kept separate from the
+   button itself so the existing hover box-shadow on .btn-cta still works —
+   a CSS animation on the button's own box-shadow would otherwise win over
+   the :hover rule every frame). */
+@keyframes cta-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+}
+
+.animate-cta-pulse {
+  animation: cta-pulse 2.6s ease-in-out infinite;
+}
+
+/* Scroll-down mouse indicator dot */
+@keyframes scroll-dot {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+}
+
+.animate-scroll-dot {
+  animation: scroll-dot 1.6s ease-in-out infinite;
+}

@@ -16,21 +16,30 @@ export function VideoSection() {
 
   return (
     <section id="video" ref={ref} className="relative py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-gold/20 shadow-2xl">
+      <div className="mx-auto max-w-sm px-6">
+        <div className="relative aspect-9/16 w-full overflow-hidden rounded-2xl border border-gold/20 shadow-2xl">
           {playing ? (
-            <iframe
-              className="absolute inset-0 h-full w-full"
-              src="https://www.youtube.com/embed/5qap5aO4i9A?autoplay=1&rel=0"
-              title="Aftermovie FRIDHA"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
+            <video
+              ref={(node) => {
+                if (!node) return
+                const el = node as HTMLVideoElement & { webkitEnterFullscreen?: () => void }
+                if (el.requestFullscreen) {
+                  el.requestFullscreen().catch(() => {})
+                } else if (el.webkitEnterFullscreen) {
+                  el.webkitEnterFullscreen()
+                }
+              }}
+              className="absolute inset-0 h-full w-full object-cover"
+              src="/fridha/aftermovie.mp4"
+              autoPlay
+              controls
+              playsInline
             />
           ) : (
             <>
               <motion.div style={{ y: posterY }} className="absolute inset-0 scale-110">
                 <Image
-                  src="/images/video-poster.png"
+                  src="/fridha/7.jpg"
                   alt="Aftermovie de FRIDHA"
                   fill
                   sizes="100vw"

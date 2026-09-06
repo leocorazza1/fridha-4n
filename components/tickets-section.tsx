@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "motion/react"
-import { Check, Ticket, Star } from "lucide-react"
+import { Ticket } from "lucide-react"
 import { EVENT, TICKETS } from "@/lib/event"
 import { Reveal } from "@/components/reveal"
 import { Countdown } from "@/components/countdown"
@@ -13,11 +13,11 @@ export function TicketsSection() {
       <div className="relative mx-auto max-w-6xl px-6">
         <Reveal className="mb-10 text-center">
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-gold">
-            No te la pierdas
+           No te quedes afuera, Tu lugar en FRIDHA empieza acá
           </p>
           <h2 className="font-display text-5xl tracking-tight sm:text-7xl">Conseguí tu entrada</h2>
           <p className="mx-auto mt-4 max-w-md text-pretty text-foreground/70">
-            Los cupos vuelan. Asegurá tu lugar antes de que arranque la cuenta regresiva final.
+            La noche ya se está armando y vos tenés que ser parte. Conseguí tu entrada, asegurá tu lugar y preparate para brindar, bailar y arrancar la Navidad como se merece.
           </p>
         </Reveal>
 
@@ -37,52 +37,65 @@ export function TicketsSection() {
                 t.featured ? "glow-border md:-translate-y-3 md:scale-[1.03]" : "glass"
               }`}
             >
-              {t.featured && (
-                <span className="btn-cta absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold">
-                  <Star className="size-3 fill-current" aria-hidden="true" />
-                  Más elegida
-                </span>
-              )}
               <h3 className="font-display text-3xl tracking-wide text-gold">{t.name}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{t.note}</p>
-              <p className="mt-5 font-display text-5xl tracking-tight">{t.price}</p>
+              <p className="mt-3 flex-1 text-pretty text-base text-foreground/80">{t.note}</p>
+              <p className="mt-5 text-xs uppercase tracking-[0.15em] text-muted-foreground">
+                Precio a confirmar
+              </p>
 
-              <ul className="mt-6 flex-1 space-y-3">
-                {t.perks.map((perk) => (
-                  <li key={perk} className="flex items-start gap-2.5 text-sm text-foreground/80">
-                    <Check className="mt-0.5 size-4 shrink-0 text-gold" aria-hidden="true" />
-                    {perk}
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href={EVENT.ticketsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`mt-7 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-transform hover:scale-[1.03] ${
-                  t.featured
-                    ? "btn-cta"
-                    : "border border-gold/40 text-gold hover:bg-gold/10"
-                }`}
-              >
-                <Ticket className="size-4" aria-hidden="true" />
-                Comprar
-              </a>
+              {EVENT.ticketsAvailable ? (
+                <a
+                  href={EVENT.ticketsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`mt-7 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-transform hover:scale-[1.03] ${
+                    t.featured
+                      ? "btn-cta"
+                      : "border border-gold/40 text-gold hover:bg-gold/10"
+                  }`}
+                >
+                  <Ticket className="size-4" aria-hidden="true" />
+                  Comprar
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  disabled
+                  className={`mt-7 inline-flex cursor-not-allowed items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold opacity-50 ${
+                    t.featured
+                      ? "btn-cta"
+                      : "border border-gold/40 text-gold"
+                  }`}
+                >
+                  <Ticket className="size-4" aria-hidden="true" />
+                  Próximamente
+                </button>
+              )}
             </motion.div>
           ))}
         </div>
 
         <Reveal delay={0.15} className="mt-14 text-center">
-          <a
-            href={EVENT.ticketsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-cta inline-flex items-center gap-3 rounded-full px-10 py-5 text-lg font-bold transition-transform hover:scale-105"
-          >
-            <Ticket className="size-6" aria-hidden="true" />
-            Comprar Entradas
-          </a>
+          {EVENT.ticketsAvailable ? (
+            <a
+              href={EVENT.ticketsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-cta inline-flex items-center gap-3 rounded-full px-10 py-5 text-lg font-bold transition-transform hover:scale-105"
+            >
+              <Ticket className="size-6" aria-hidden="true" />
+              Comprar Entradas
+            </a>
+          ) : (
+            <button
+              type="button"
+              disabled
+              className="btn-cta inline-flex cursor-not-allowed items-center gap-3 rounded-full px-10 py-5 text-lg font-bold opacity-50"
+            >
+              <Ticket className="size-6" aria-hidden="true" />
+              Próximamente
+            </button>
+          )}
         </Reveal>
       </div>
     </section>

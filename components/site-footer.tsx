@@ -26,35 +26,13 @@ export function SiteFooter() {
               >
                 <Camera className="size-5" aria-hidden="true" />
               </a>
-              <a
-                href={EVENT.socials.tiktok}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="TikTok de FRIDHA"
-                className="grid size-11 place-items-center rounded-full border border-gold/25 text-foreground/80 transition-colors hover:border-gold hover:text-gold"
-              >
-                <Music2 className="size-5" aria-hidden="true" />
-              </a>
-              <a
-                href={`mailto:${EVENT.contactEmail}`}
-                aria-label="Enviar email a FRIDHA"
-                className="grid size-11 place-items-center rounded-full border border-gold/25 text-foreground/80 transition-colors hover:border-gold hover:text-gold"
-              >
-                <Mail className="size-5" aria-hidden="true" />
-              </a>
             </div>
-            <a
-              href={`mailto:${EVENT.contactEmail}`}
-              className="text-sm text-muted-foreground transition-colors hover:text-gold"
-            >
-              {EVENT.contactEmail}
-            </a>
           </div>
         </div>
 
         <div className="mt-10 border-t border-gold/10 pt-6 text-center text-xs text-muted-foreground">
           © {new Date().getFullYear()} {EVENT.name}. Todos los derechos reservados. Evento para
-          mayores de 18 años.
+          mayores de 15 años.
         </div>
       </div>
     </footer>

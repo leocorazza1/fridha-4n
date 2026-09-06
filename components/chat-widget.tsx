@@ -1,40 +1,30 @@
 "use client"
 
 import { useState, useRef, useEffect, type KeyboardEvent } from "react"
+import { useChat } from "@ai-sdk/react"
+import { DefaultChatTransport, type UIMessage } from "ai"
 import { motion, AnimatePresence } from "motion/react"
-import { MessageCircle, X, Send, Sparkles } from "lucide-react"
-import { EVENT } from "@/lib/event"
+import { Gift, X, Send, Sparkles } from "lucide-react"
 
-type Message = { role: "bot" | "user"; text: string }
+const SUGGESTIONS = ["¿Dónde es?", "¿A qué hora abre?", "¿Cómo compro entradas?", "Poneme en contacto con un promotor"]
 
-const SUGGESTIONS = ["¿Cuál es el dress code?", "¿Dónde es?", "¿A qué hora abre?", "¿Cómo compro entradas?"]
-
-function botReply(input: string): string {
-  const q = input.toLowerCase()
-  if (/(dress|vestir|ropa|codigo|código|outfit)/.test(q))
-    return "El dress code es elegante festivo. Sumate al clima navideño con dorados, rojos o negro. Nada de shorts ni ojotas."
-  if (/(donde|dónde|ubicaci|lugar|direcci|como llego|cómo llego)/.test(q))
-    return `Nos vemos en ${EVENT.venue}, ${EVENT.city}. Te recomendamos llegar en taxi o app de viajes.`
-  if (/(hora|horario|abre|cierra|empieza|termina)/.test(q))
-    return `Abrimos ${EVENT.time}. Te sugerimos llegar temprano para aprovechar el Early Bird y evitar filas.`
-  if (/(entrada|ticket|comprar|precio|cuesta|vale|cuanto|cuánto)/.test(q))
-    return `Podés comprar tus entradas online en ${EVENT.ticketsUrl}. Hay Early Bird, General y VIP mientras haya cupo.`
-  if (/(fecha|cuando|cuándo|dia|día)/.test(q))
-    return `FRIDHA es el ${EVENT.date}. ¡Marcá el calendario!`
-  if (/(edad|menor|18|mayor)/.test(q))
-    return "El evento es para mayores de 18 años. Traé tu documento, es obligatorio para ingresar."
-  if (/(hola|buenas|hey|holis)/.test(q))
-    return "¡Hola! Soy el asistente de FRIDHA. Preguntame por el dress code, ubicación, horarios o entradas."
-  return "Buena pregunta. Para eso mejor escribinos por Instagram @fridha y te respondemos al toque. ¿Algo más sobre dress code, ubicación u horarios?"
-}
+const INITIAL_MESSAGES: UIMessage[] = [
+  {
+    id: "welcome",
+    role: "assistant",
+    parts: [{ type: "text", text: "¡Hey! 🪩 ¿Listo para FRIDHA? Preguntame lo que quieras sobre la fiesta." }],
+  },
+]
 
 export function ChatWidget() {
   const [open, setOpen] = useState(false)
   const [input, setInput] = useState("")
-  const [messages, setMessages] = useState<Message[]>([
-    { role: "bot", text: "¡Hola! Soy el asistente de FRIDHA. ¿En qué te puedo ayudar?" },
-  ])
   const scrollRef = useRef<HTMLDivElement>(null)
+
+  const { messages, sendMessage, status } = useChat({
+    transport: new DefaultChatTransport({ api: "/api/chat" }),
+    messages: INITIAL_MESSAGES,
+  })
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" })
@@ -42,12 +32,9 @@ export function ChatWidget() {
 
   function send(text: string) {
     const trimmed = text.trim()
-    if (!trimmed) return
-    setMessages((m) => [...m, { role: "user", text: trimmed }])
+    if (!trimmed || status === "streaming" || status === "submitted") return
+    sendMessage({ text: trimmed })
     setInput("")
-    setTimeout(() => {
-      setMessages((m) => [...m, { role: "bot", text: botReply(trimmed) }])
-    }, 450)
   }
 
   function onKeyDown(e: KeyboardEvent<HTMLInputElement>) {
@@ -59,26 +46,34 @@ export function ChatWidget() {
 
   return (
     <>
-      <motion.button
-        type="button"
-        onClick={() => setOpen((o) => !o)}
-        aria-label={open ? "Cerrar chat" : "Abrir chat de preguntas"}
-        whileHover={{ scale: 1.06 }}
-        whileTap={{ scale: 0.94 }}
-        className="fixed bottom-5 right-5 z-50 grid size-14 place-items-center rounded-full bg-gold text-primary-foreground shadow-[0_0_35px_-6px_var(--gold)]"
-      >
-        <AnimatePresence mode="wait" initial={false}>
-          {open ? (
-            <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }}>
-              <X className="size-6" aria-hidden="true" />
-            </motion.span>
-          ) : (
-            <motion.span key="chat" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }}>
-              <MessageCircle className="size-6" aria-hidden="true" />
-            </motion.span>
-          )}
-        </AnimatePresence>
-      </motion.button>
+      <div className="fixed bottom-5 right-5 z-50">
+        {!open && (
+          <span
+            className="animate-cta-pulse absolute inset-0 rounded-full bg-gold/60 blur-2xl"
+            aria-hidden="true"
+          />
+        )}
+        <motion.button
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          aria-label={open ? "Cerrar chat" : "Abrir chat de preguntas"}
+          whileHover={{ scale: 1.06 }}
+          whileTap={{ scale: 0.94 }}
+          className="relative grid size-14 place-items-center rounded-full bg-gold text-primary-foreground shadow-[0_0_35px_-6px_var(--gold)]"
+        >
+          <AnimatePresence mode="wait" initial={false}>
+            {open ? (
+              <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }}>
+                <X className="size-6" aria-hidden="true" />
+              </motion.span>
+            ) : (
+              <motion.span key="chat" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }}>
+                <Gift className="size-6" aria-hidden="true" />
+              </motion.span>
+            )}
+          </AnimatePresence>
+        </motion.button>
+      </div>
 
       <AnimatePresence>
         {open && (
@@ -100,8 +95,8 @@ export function ChatWidget() {
             </div>
 
             <div ref={scrollRef} className="no-scrollbar flex-1 space-y-3 overflow-y-auto p-4">
-              {messages.map((m, i) => (
-                <div key={i} className={m.role === "user" ? "flex justify-end" : "flex justify-start"}>
+              {messages.map((m) => (
+                <div key={m.id} className={m.role === "user" ? "flex justify-end" : "flex justify-start"}>
                   <div
                     className={`max-w-[80%] rounded-2xl px-3.5 py-2 text-sm leading-relaxed ${
                       m.role === "user"
@@ -109,10 +104,17 @@ export function ChatWidget() {
                         : "rounded-bl-sm bg-secondary text-secondary-foreground"
                     }`}
                   >
-                    {m.text}
+                    {m.parts.map((part, i) => (part.type === "text" ? <span key={i}>{part.text}</span> : null))}
                   </div>
                 </div>
               ))}
+              {status === "submitted" && (
+                <div className="flex justify-start">
+                  <div className="rounded-2xl rounded-bl-sm bg-secondary px-3.5 py-2 text-sm text-secondary-foreground">
+                    Escribiendo…
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="border-t border-gold/15 p-3">

@@ -20,13 +20,14 @@ export function SpotifySection() {
               >
                 <div className="absolute inset-2 rounded-full border border-gold/10" />
                 <div className="absolute inset-6 rounded-full border border-gold/10" />
+                <div className="absolute left-1/2 top-1 size-1.5 -translate-x-1/2 rounded-full bg-gold sm:size-2" />
                 <div className="grid size-10 place-items-center rounded-full bg-gold sm:size-12">
                   <Disc3 className="size-5 text-primary-foreground sm:size-6" aria-hidden="true" />
                 </div>
               </motion.div>
               <div>
                 <p className="mb-2 text-xs font-medium uppercase tracking-[0.25em] text-gold">
-                  El sonido de FRIDHA
+                  Que FRIDHA también suene en tu mesa
                 </p>
                 <h2 className="font-display text-4xl leading-none tracking-tight sm:text-6xl">
                   La playlist oficial
@@ -34,8 +35,8 @@ export function SpotifySection() {
               </div>
             </div>
             <p className="mt-6 max-w-md text-pretty leading-relaxed text-foreground/75">
-              Preparate para la noche. Dale play a la selección oficial de FRIDHA y viví el clima
-              antes de que empiece la fiesta. House, disco y clásicos navideños con onda.
+Guardá nuestra playlist oficial en Spotify y hacela parte de tu Navidad. Ponela mientras cenan, brindan y esperan las 12. Nosotros elegimos la música, ustedes empiezan la fiesta.
+
             </p>
           </Reveal>
 
