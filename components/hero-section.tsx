@@ -57,14 +57,21 @@ export function HeroSection() {
         >
           {EVENT.tagline}
         </motion.span>
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="text-gold-gradient animate-hero-glow font-display text-[22vw] leading-[0.82] tracking-tight sm:text-[16rem]"
+          className="w-[70vw] max-w-135"
         >
-          {EVENT.name}
-        </motion.h1>
+          <Image
+            src="/fridha/fridha-logo.png"
+            alt={EVENT.name}
+            width={1068}
+            height={332}
+            priority
+            className="animate-hero-glow h-auto w-full"
+          />
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}

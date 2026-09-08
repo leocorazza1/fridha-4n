@@ -17,14 +17,14 @@ const bebas = Bebas_Neue({
 })
 
 export const metadata: Metadata = {
-  title: 'FRIDHA — Fiesta de Navidad',
+  title: 'Navidad FRIDHA 2026',
   description:
-    'FRIDHA vuelve esta Navidad. Una noche de lujo, música y luces doradas. Comprá tus entradas para la fiesta del año.',
+    'Una Navidad. Una noche. Una tradición. Desde 2022, FRIDHA es el reencuentro navideño en Realicó, La Pampa. Después de las 12, nos encontramos todos acá.',
   generator: 'v0.app',
   openGraph: {
-    title: 'FRIDHA — Fiesta de Navidad',
+    title: 'Navidad FRIDHA 2026',
     description:
-      'Una noche de lujo, música y luces doradas. Comprá tus entradas para la fiesta del año.',
+      'Una Navidad. Una noche. Una tradición. Después de las 12, nos encontramos todos en FRIDHA.',
     images: ['/images/hero.png'],
   },
 }
