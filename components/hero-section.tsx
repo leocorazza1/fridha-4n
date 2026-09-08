@@ -70,26 +70,26 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="mt-4 max-w-xl text-balance text-lg text-foreground/85 sm:text-xl"
+          className="mt-4 max-w-xl text-balance text-lg text-foreground drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] sm:text-xl"
         >
-          Brindá en casa. <span className="text-gold">Festejá con nosotros.</span>
+          Brindá en casa. <span className="font-semibold text-gold">Festejá con nosotros.</span>
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.45 }}
-          className="mt-8 flex flex-col items-center gap-3 text-sm text-foreground/90 sm:flex-row sm:gap-6"
+          className="mt-8 flex flex-col items-center gap-2 text-sm font-medium text-foreground sm:flex-row sm:gap-3"
         >
-          <span className="inline-flex items-center gap-2">
+          <span className="inline-flex items-center gap-2 rounded-full border border-gold/20 bg-background/60 px-4 py-1.5 backdrop-blur-sm">
             <Calendar className="size-4 text-gold" aria-hidden="true" />
             {EVENT.date}
           </span>
-          <span className="inline-flex items-center gap-2">
+          <span className="inline-flex items-center gap-2 rounded-full border border-gold/20 bg-background/60 px-4 py-1.5 backdrop-blur-sm">
             <MapPin className="size-4 text-gold" aria-hidden="true" />
             {EVENT.venue}, {EVENT.city}
           </span>
-          <span className="inline-flex items-center gap-2">
+          <span className="inline-flex items-center gap-2 rounded-full border border-gold/20 bg-background/60 px-4 py-1.5 backdrop-blur-sm">
             <Clock className="size-4 text-gold" aria-hidden="true" />
             {EVENT.time}
           </span>
@@ -105,13 +105,13 @@ export function HeroSection() {
             {[0, 1].map((rep) => (
               <span
                 key={rep}
-                className="flex shrink-0 items-center gap-3 whitespace-nowrap pr-3 text-xs font-medium uppercase tracking-[0.3em] text-gold/70"
+                className="flex shrink-0 items-center gap-3 whitespace-nowrap pr-3 text-xs font-semibold uppercase tracking-[0.3em] text-gold"
               >
                 <span>{EVENT.date}</span>
                 <span aria-hidden="true">✦</span>
                 <span>{EVENT.venue}</span>
                 <span aria-hidden="true">✦</span>
-                <span>Cupos limitados</span>
+                <span>Entradas limitadas</span>
                 <span aria-hidden="true">✦</span>
               </span>
             ))}

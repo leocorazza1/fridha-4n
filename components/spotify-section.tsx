@@ -35,8 +35,7 @@ export function SpotifySection() {
               </div>
             </div>
             <p className="mt-6 max-w-md text-pretty leading-relaxed text-foreground/75">
-Guardá nuestra playlist oficial en Spotify y hacela parte de tu Navidad. Ponela mientras cenan, brindan y esperan las 12. Nosotros elegimos la música, ustedes empiezan la fiesta.
-
+              Entre todos vamos a ir construyendo la playlist, así que andá guardándola: no te asustes si por ahora ves un solo tema o poquitos, se va a ir llenando.
             </p>
           </Reveal>
 

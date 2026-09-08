@@ -9,6 +9,8 @@ export const EVENT = {
   city: "Realicó, La Pampa",
   ticketsUrl: "https://entradas.fridha.com",
   ticketsAvailable: false,
+  promotersSectionVisible: true,
+  chatVisible: false,
   spotifyPlaylistId: "64oGgzEWy5owo8rBNv6Brf",
   socials: {
     instagram: "https://instagram.com/fridha.realico"

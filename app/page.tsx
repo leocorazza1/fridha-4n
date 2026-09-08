@@ -6,6 +6,7 @@ import { TicketsSection } from "@/components/tickets-section"
 import { RankingSection } from "@/components/ranking-section"
 import { SiteFooter } from "@/components/site-footer"
 import { ChatWidget } from "@/components/chat-widget"
+import { EVENT } from "@/lib/event"
 
 export default function Home() {
   return (
@@ -15,9 +16,9 @@ export default function Home() {
       <GallerySection />
       <SpotifySection />
       <TicketsSection />
-      <RankingSection />
+      {EVENT.promotersSectionVisible && <RankingSection />}
       <SiteFooter />
-      <ChatWidget />
+      {EVENT.chatVisible && <ChatWidget />}
     </main>
   )
 }
