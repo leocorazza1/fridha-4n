@@ -15,8 +15,8 @@ export default function Home() {
       <VideoSection />
       <GallerySection />
       <SpotifySection />
-      <TicketsSection />
       <VipSection />
+      <TicketsSection />
       <SiteFooter />
       {EVENT.chatVisible && <ChatWidget />}
     </main>
