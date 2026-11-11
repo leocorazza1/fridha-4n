@@ -40,7 +40,7 @@ export const VIP_TIERS = [
   },
   {
     id: "platinum",
-    name: "FRIDHA GOLD PLATINUM",
+    name: "FRIDHA PLATINUM EXPERIENCE",
     tagline: "La experiencia premium de la noche",
     featured: true,
     perks: [
