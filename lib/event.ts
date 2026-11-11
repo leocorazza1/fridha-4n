@@ -21,28 +21,8 @@ export const EVENT = {
 
 export const VIP_TIERS = [
   {
-    id: "experience",
+    id: "gold",
     name: "FRIDHA GOLD EXPERIENCE",
-    tagline: "La noche se disfruta mejor con amigos",
-    featured: false,
-    perks: [
-      "10 ingresos VIP",
-      "Sector exclusivo y delimitado para tu grupo",
-      "1 botella de Fernet + Coca-Cola",
-      "2 botellas de Smirnoff + Speed",
-      "1 botella de Gin Gordon's + tónicas",
-      "2 botellas de Champagne",
-      "2 botellas de vino blanco",
-      "2 six packs de cerveza",
-      "10 aguas",
-    ],
-    // TODO: placeholder price
-    price: "$1",
-    tables: ["E1", "E2", "E3"],
-  },
-  {
-    id: "platinum",
-    name: "FRIDHA PLATINUM EXPERIENCE",
     tagline: "La experiencia premium de la noche",
     featured: true,
     perks: [
@@ -59,11 +39,31 @@ export const VIP_TIERS = [
     ],
     // TODO: placeholder price
     price: "$1",
+    tables: ["G1", "G2", "G3"],
+  },
+  {
+    id: "platinum",
+    name: "FRIDHA PLATINUM EXPERIENCE",
+    tagline: "La noche se disfruta mejor con amigos",
+    featured: false,
+    perks: [
+      "10 ingresos VIP",
+      "Sector exclusivo y delimitado para tu grupo",
+      "1 botella de Fernet + Coca-Cola",
+      "2 botellas de Smirnoff + Speed",
+      "1 botella de Gin Gordon's + tónicas",
+      "2 botellas de Champagne",
+      "2 botellas de vino blanco",
+      "2 six packs de cerveza",
+      "10 aguas",
+    ],
+    // TODO: placeholder price
+    price: "$1",
     tables: ["P1", "P2", "P3"],
   },
 ] as const
 
-// Tables already booked — update by hand when a reservation is confirmed (e.g. ["E1", "P2"])
+// Tables already booked — update by hand when a reservation is confirmed (e.g. ["P1", "G2"])
 export const VIP_RESERVED_TABLES: readonly string[] = []
 
 export const GALLERY = [
