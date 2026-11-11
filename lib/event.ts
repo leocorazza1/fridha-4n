@@ -90,9 +90,4 @@ export const TICKETS = [
     note: "Tu entrada para vivir la noche completa",
     featured: true,
   },
-  {
-    name: "VIP",
-    note: "La experiencia más exclusiva de la noche",
-    featured: false,
-  },
 ] as const

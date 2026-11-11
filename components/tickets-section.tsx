@@ -25,7 +25,7 @@ export function TicketsSection() {
           <Countdown dateISO={EVENT.dateISO} />
         </Reveal>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="mx-auto grid max-w-3xl gap-6 md:grid-cols-2">
           {TICKETS.map((t, i) => (
             <motion.div
               key={t.name}
