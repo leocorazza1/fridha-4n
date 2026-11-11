@@ -94,9 +94,17 @@ export function VipSection() {
                     </li>
                   ))}
                 </ul>
-                <p className="mt-6 text-xs uppercase tracking-[0.15em] text-muted-foreground">
-                  Precio a confirmar
-                </p>
+                <div className="mt-7 flex items-end justify-between gap-4 rounded-xl border border-gold/30 bg-gradient-to-r from-gold/15 to-gold/5 px-5 py-4">
+                  <div>
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-foreground/60">
+                      Precio por mesa
+                    </p>
+                    <p className="font-display text-4xl leading-none tracking-wide text-gold">
+                      {t.price}
+                    </p>
+                  </div>
+                  <p className="text-right text-[11px] text-foreground/55">10 personas</p>
+                </div>
               </motion.div>
             )
           })}
@@ -108,6 +116,9 @@ export function VipSection() {
             <div>
               <p className="font-display text-2xl tracking-wide">1. Elegí tu mesa</p>
               <p className="mt-1 text-sm text-foreground/60">3 mesas por experiencia.</p>
+              <p className="mt-1 text-xs italic text-foreground/45">
+                * La ubicación de las mesas es ilustrativa, no corresponde al plano definitivo.
+              </p>
 
               <div className="mt-6 rounded-xl border border-gold/15 bg-background/30 p-5">
                 <div className="mx-auto mb-6 w-2/3 rounded-md border border-gold/30 bg-gold/10 py-2 text-center text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">
@@ -225,6 +236,11 @@ export function VipSection() {
                   placeholder="12345678"
                 />
               </label>
+
+              <p className="mt-5 rounded-xl border border-crimson/30 bg-crimson/10 px-4 py-3 text-xs text-foreground/75">
+                <span className="font-semibold text-foreground">Importante:</span> una vez reservada,
+                la mesa se confirma abonando una seña. Te pasamos los datos por WhatsApp.
+              </p>
 
               {error && (
                 <p role="alert" className="mt-4 text-sm text-crimson">

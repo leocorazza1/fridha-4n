@@ -36,6 +36,8 @@ export const VIP_TIERS = [
       "2 six packs de cerveza",
       "10 aguas",
     ],
+    // TODO: placeholder price
+    price: "$1",
     tables: ["E1", "E2", "E3"],
   },
   {
@@ -55,6 +57,8 @@ export const VIP_TIERS = [
       "2 packs de Corona",
       "10 aguas",
     ],
+    // TODO: placeholder price
+    price: "$1",
     tables: ["P1", "P2", "P3"],
   },
 ] as const
