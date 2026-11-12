@@ -100,7 +100,7 @@ export function VipSection() {
                       Precio por mesa
                     </p>
                     <p className="font-display text-4xl leading-none tracking-wide text-gold">
-                      {t.price}
+                      {EVENT.vipReservationsOpen ? t.price : "Próximamente"}
                     </p>
                   </div>
                   <p className="text-right text-[11px] text-foreground/55">10 personas</p>
