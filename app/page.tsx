@@ -2,6 +2,7 @@ import { HeroSection } from "@/components/hero-section"
 import { VideoSection } from "@/components/video-section"
 import { GallerySection } from "@/components/gallery-section"
 import { InstagramSection } from "@/components/instagram-section"
+import { MobileBuyBar } from "@/components/mobile-buy-bar"
 import { SpotifySection } from "@/components/spotify-section"
 import { TicketsSection } from "@/components/tickets-section"
 import { VipSection } from "@/components/vip-section"
@@ -20,6 +21,7 @@ export default function Home() {
       <InstagramSection />
       <SpotifySection />
       <SiteFooter />
+      <MobileBuyBar />
       {EVENT.chatVisible && <ChatWidget />}
     </main>
   )
