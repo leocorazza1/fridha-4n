@@ -1,6 +1,7 @@
 import { HeroSection } from "@/components/hero-section"
 import { VideoSection } from "@/components/video-section"
 import { GallerySection } from "@/components/gallery-section"
+import { InstagramSection } from "@/components/instagram-section"
 import { SpotifySection } from "@/components/spotify-section"
 import { TicketsSection } from "@/components/tickets-section"
 import { VipSection } from "@/components/vip-section"
@@ -13,10 +14,11 @@ export default function Home() {
     <main className="relative overflow-x-hidden">
       <HeroSection />
       <VideoSection />
-      <GallerySection />
-      <SpotifySection />
-      <VipSection />
       <TicketsSection />
+      <VipSection />
+      <GallerySection />
+      <InstagramSection />
+      <SpotifySection />
       <SiteFooter />
       {EVENT.chatVisible && <ChatWidget />}
     </main>
