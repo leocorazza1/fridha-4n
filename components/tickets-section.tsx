@@ -35,15 +35,23 @@ export function TicketsSection() {
               transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
               className={`relative flex flex-col rounded-2xl p-7 ${
                 t.featured ? "glow-border md:-translate-y-3 md:scale-[1.03]" : "glass"
-              }`}
+              } ${t.soldOut ? "opacity-60" : ""}`}
             >
               <h3 className="font-display text-3xl tracking-wide text-gold">{t.name}</h3>
               <p className="mt-3 flex-1 text-pretty text-base text-foreground/80">{t.note}</p>
-              <p className="mt-5 text-xs uppercase tracking-[0.15em] text-muted-foreground">
-                Precio a confirmar
-              </p>
+              {t.soldOut ? (
+                <p className="mt-5 inline-flex w-fit -rotate-3 rounded-md border-2 border-crimson px-3 py-1 font-display text-2xl tracking-widest text-crimson">
+                  AGOTADO
+                </p>
+              ) : t.price ? (
+                <p className="mt-5 font-display text-3xl tracking-wide text-foreground">{t.price}</p>
+              ) : (
+                <p className="mt-5 text-xs uppercase tracking-[0.15em] text-muted-foreground">
+                  Precio a confirmar
+                </p>
+              )}
 
-              {EVENT.ticketsAvailable ? (
+              {EVENT.ticketsAvailable && !t.soldOut ? (
                 <a
                   href={EVENT.ticketsUrl}
                   target="_blank"
@@ -68,7 +76,7 @@ export function TicketsSection() {
                   }`}
                 >
                   <Ticket className="size-4" aria-hidden="true" />
-                  Próximamente
+                  {t.soldOut ? "Agotado" : "Próximamente"}
                 </button>
               )}
             </motion.div>

@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react"
 import { motion } from "motion/react"
-import { Check, Crown, MessageCircle, Sparkles } from "lucide-react"
+import { Check, Crown, Lock, MessageCircle, Sparkles } from "lucide-react"
 import { EVENT, VIP_RESERVED_TABLES, VIP_TIERS } from "@/lib/event"
 import { Reveal } from "@/components/reveal"
 
@@ -111,8 +111,24 @@ export function VipSection() {
         </div>
 
         {/* Table picker + form */}
-        <Reveal delay={0.1} className="glass mt-12 rounded-2xl p-6 sm:p-10">
-          <div className="grid gap-10 lg:grid-cols-2">
+        <Reveal delay={0.1} className="glass relative mt-12 overflow-hidden rounded-2xl p-6 sm:p-10">
+          {!EVENT.vipReservationsOpen && (
+            <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/50 p-6">
+              <div className="glow-border max-w-sm rounded-2xl px-8 py-8 text-center">
+                <Lock className="mx-auto size-7 text-gold" aria-hidden="true" />
+                <p className="mt-4 font-display text-2xl tracking-wide">Estamos armando los precios</p>
+                <p className="mt-2 text-sm text-foreground/70">
+                  Muy pronto vas a poder elegir y reservar tu mesa VIP desde acá.
+                </p>
+              </div>
+            </div>
+          )}
+          <div
+            inert={!EVENT.vipReservationsOpen}
+            className={`grid gap-10 lg:grid-cols-2 ${
+              EVENT.vipReservationsOpen ? "" : "pointer-events-none select-none opacity-40 blur-[2px]"
+            }`}
+          >
             <div>
               <p className="font-display text-2xl tracking-wide">1. Elegí tu mesa</p>
               <p className="mt-1 text-sm text-foreground/60">3 mesas por experiencia.</p>

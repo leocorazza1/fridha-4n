@@ -7,8 +7,8 @@ export const EVENT = {
   time: "1:00 hs — 06:00 hs",
   venue: "Club Sportivo Realicó",
   city: "Realicó, La Pampa",
-  ticketsUrl: "https://entradas.fridha.com",
-  ticketsAvailable: false,
+  ticketsUrl: "https://etickets.com.ar/fridha-navidad-2026/",
+  ticketsAvailable: true,
   chatVisible: false,
   spotifyPlaylistId: "64oGgzEWy5owo8rBNv6Brf",
   socials: {
@@ -16,7 +16,8 @@ export const EVENT = {
   },
   contactEmail: "hola@fridha.com",
   // International format, digits only (used in wa.me links)
-  whatsappNumber: "5492302502668",
+  whatsappNumber: "5492302590082",
+  vipReservationsOpen: false,
 }
 
 export const VIP_TIERS = [
@@ -84,10 +85,14 @@ export const TICKETS = [
     name: "Early Bird",
     note: "Para los que no se quedan esperando",
     featured: false,
+    price: null,
+    soldOut: true,
   },
   {
     name: "General",
     note: "Tu entrada para vivir la noche completa",
     featured: true,
+    price: "Lote 1 · $15.000",
+    soldOut: false,
   },
 ] as const
