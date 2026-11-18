@@ -6,6 +6,7 @@ import { MobileBuyBar } from "@/components/mobile-buy-bar"
 import { SpotifySection } from "@/components/spotify-section"
 import { TicketsSection } from "@/components/tickets-section"
 import { VipSection } from "@/components/vip-section"
+import { CupSection } from "@/components/cup-section"
 import { SiteFooter } from "@/components/site-footer"
 import { ChatWidget } from "@/components/chat-widget"
 import { EVENT } from "@/lib/event"
@@ -17,6 +18,7 @@ export default function Home() {
       <VideoSection />
       <TicketsSection />
       <VipSection />
+      <CupSection />
       <GallerySection />
       <InstagramSection />
       <SpotifySection />

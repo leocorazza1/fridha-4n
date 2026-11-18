@@ -67,6 +67,17 @@ export const VIP_TIERS = [
 // Tables already booked — update by hand when a reservation is confirmed (e.g. ["P1", "G2"])
 export const VIP_RESERVED_TABLES: readonly string[] = []
 
+export const CUP_SPONSOR = {
+  price: "$100.000",
+  viewerUrl:
+    "https://ecovasos.com/qero/personalizacion_online/copo-3d?id_medida=2&toques=99&filename=1795039633271.webp",
+  // Laid out as on the cup: 2 columns x 3 rows
+  slots: ["1", "2", "3", "4", "5", "6"],
+} as const
+
+// Logo slots already sold — update by hand when a sponsor is confirmed (e.g. ["1", "4"])
+export const CUP_TAKEN_SLOTS: readonly string[] = []
+
 export const GALLERY = [
   { src: "/fridha/fridha_gente.jpg", alt: "Gente disfrutando de FRIDHA", span: "wide" },
   { src: "/fridha/95.jpg", alt: "Edición anterior de FRIDHA", span: "tall" },
