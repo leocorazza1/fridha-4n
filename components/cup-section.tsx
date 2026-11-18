@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react"
 import { MessageCircle, Sparkles } from "lucide-react"
-import { CUP_SPONSOR, CUP_TAKEN_SLOTS, EVENT } from "@/lib/event"
+import { CUP_SPONSOR, CUP_TAKEN_SLOTS } from "@/lib/event"
 import { Reveal } from "@/components/reveal"
 
 const inputClass =
@@ -29,7 +29,7 @@ export function CupSection() {
     ].join("\n")
 
     window.open(
-      `https://wa.me/${EVENT.whatsappNumber}?text=${encodeURIComponent(message)}`,
+      `https://wa.me/${CUP_SPONSOR.whatsappNumber}?text=${encodeURIComponent(message)}`,
       "_blank",
       "noopener,noreferrer",
     )

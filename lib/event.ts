@@ -69,6 +69,8 @@ export const VIP_RESERVED_TABLES: readonly string[] = []
 
 export const CUP_SPONSOR = {
   price: "$100.000",
+  // International format, digits only (used in wa.me links)
+  whatsappNumber: "5492302585429",
   viewerUrl:
     "https://ecovasos.com/qero/personalizacion_online/copo-3d?id_medida=2&toques=99&filename=1795039633271.webp",
   // Laid out as on the cup: 2 columns x 3 rows
