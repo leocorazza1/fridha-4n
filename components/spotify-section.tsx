@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "motion/react"
-import { Disc3 } from "lucide-react"
+import { Disc3, ListPlus } from "lucide-react"
 import { EVENT } from "@/lib/event"
 import { Reveal } from "@/components/reveal"
 
@@ -35,8 +35,17 @@ export function SpotifySection() {
               </div>
             </div>
             <p className="mt-6 max-w-md text-pretty leading-relaxed text-foreground/75">
-              Entre todos vamos a ir construyendo la playlist, así que andá guardándola: no te asustes si por ahora ves un solo tema o poquitos, se va a ir llenando.
+              Entre todos vamos a ir construyendo la playlist: sumá los temas que querés que suenen y guardala. No te asustes si por ahora ves un solo tema o poquitos, se va a ir llenando.
             </p>
+            <a
+              href={EVENT.spotifyInviteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-cta mt-8 inline-flex items-center gap-2 rounded-full px-8 py-4 text-base font-bold transition-transform hover:scale-[1.03]"
+            >
+              <ListPlus className="size-5" aria-hidden="true" />
+              Sumá tu tema
+            </a>
           </Reveal>
 
           <Reveal delay={0.15}>

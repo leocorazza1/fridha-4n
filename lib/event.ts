@@ -11,6 +11,9 @@ export const EVENT = {
   ticketsAvailable: true,
   chatVisible: false,
   spotifyPlaylistId: "64oGgzEWy5owo8rBNv6Brf",
+  // Collaborator invite link (Spotify "Invite collaborators"); expires after 7 days — regenerate and replace
+  spotifyInviteUrl:
+    "https://open.spotify.com/playlist/64oGgzEWy5owo8rBNv6Brf?si=e554d0180c60431e&pt=c0172f7f79f400d812c1b7fe9028d7af",
   socials: {
     instagram: "https://instagram.com/fridha.realico"
   },
